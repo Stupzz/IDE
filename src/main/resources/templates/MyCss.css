@@ -49,6 +49,12 @@ fieldset {
   width: 600px;
   margin: 0 auto;
 }
+
+a:link{
+  text-decoration:none;
+  color: black;
+}
+
 /*------------------------ Class --------------------------*/
 
 .TailleCheckbox {
@@ -81,6 +87,10 @@ fieldset {
 .LabelDisplayLeft{
   display: table-cell;
   text-align: left;
+}
+
+.Errors {
+  color: red;
 }
 
 /*------------------------ Id --------------------------*/

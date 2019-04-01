@@ -13,11 +13,14 @@
 			<legend>Tournoi 
 				<span th:text="${tournois.name}" > </span>
 			</legend>
+			<p>Description:
+				<span th:text="${tournois.description}" > </span>
+			</p>
 			<br>
 			<div class="Position" id="PositionDiv">
 				<label>
-					<a th:href="@{/new-team(tournois_id=${tournois.id})}"> ajouter une team</a>
-					<a href="/">retour</a>
+					<button><a th:href="@{/new-team(tournois_id=${tournois.id})}"> ajouter une team</a></button>
+					<button><a href="/">retour</a></button>
 				</label>
 			</div>
 			<br>
@@ -30,7 +33,8 @@
             					<a th:href="@{/team(team_id=${team.id}, tournois_id=${tournois.id})}" th:text="${team.teamName}"></a>
             				</td>
             				<td>
-                				<span th:each=" joueur : ${team.joueurs}" th:text="${joueur.name}"> <br> </span>
+                				<p th:each=" joueur : ${team.joueurs}">
+									<span th:text="${joueur.name}"> </span></p>
             				</td>
         				</tr>
 					</table>

@@ -16,35 +16,27 @@
 				<div class="DivDisplay">
     				<label class="LabelDisplayLeft">Nom tournois: 
     					<input type="text" th:field="*{name}" /> 
-    					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="Errors"></span>
     				</label>
     			</div>
     			<br>
     			<div class="DivDisplay">	
     				<label class="LabelDisplayLeft">Nombre joueur par équipe: 
     					<input type="number" th:field="*{nbJoueur}" /> 
-    					<span th:errors="*{nbJoueur}"></span>
+    					<span th:if="${#fields.hasErrors('nbJoueur')}" th:errors="*{nbJoueur}" class="Errors"></span>
     				</label>
     			</div>
-				<!--<div class="DivDisplay">
-					<label class="LabelDisplayLeft">Date du tournoi:
-						<input type="date" th:field="*{dateTournois}" />
-						<span th:errors="*{dateTournois}"></span>
-					</label>
-				</div>-->
 				<div class="DivDisplay">
 					<p>Description</p>
 					<textarea rows="4" cols="50" th:field="*{description}"></textarea>
-					<div th:errors="*{description}"/>
+					<div th:errors="*{description}" class="Errors" />
     			</div>
-				<div class="Position">
-					<input type="submit" value="Submit" /> <input type="reset" value="Reset" />
-					<form action="/">
-						<input type="submit" value="Retour" />
-					</form>
-				</div>
-			</form>
-    	</fieldset>
-    </div>			
+                <div class="Position">
+                    <input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+					<button><a href="/">retour</a></button>
+                </div>
+            </form>
+        </fieldset>
+    </div>          
 </body>
 </html>

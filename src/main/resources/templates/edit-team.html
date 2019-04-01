@@ -18,7 +18,7 @@
                     <label class="LabelDisplayCenter">Nom de team: 
                         <input type="text" th:field="*{teamName}" th:value="*{teamName}" />
                     </label>
-                    <span th:if="${#fields.hasErrors('teamName')}" th:errors="*{teamName}"></span>
+                    <span th:if="${#fields.hasErrors('teamName')}" th:errors="*{teamName}" class="Errors"></span>
                 </div>
                 <br>    
                 <div th:each="joueur, row : *{joueurs}">
@@ -30,19 +30,19 @@
                             <div>
                                 <label class="LabelDisplayLeft" id="Block">Nom: 
                                     <input type="text" th:field="*{joueurs[__${row.index}__].name}" th:value="*{joueurs[__${row.index}__].name}" />
-                                    <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].name')}" th:errors="*{joueurs[__${row.index}__].name}"></span>
+                                    <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].name')}" th:errors="*{joueurs[__${row.index}__].name}" class="Errors"></span>
                                 </label>
                             </div>
                             <div>    
                                 <label class="LabelDisplayLeft" id="Block">Pseudo: 
                                     <input type="text" th:field="*{joueurs[__${row.index}__].pseudo}" th:value="*{joueurs[__${row.index}__].pseudo}" />
-                                    <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].pseudo')}" th:errors="*{joueurs[__${row.index}__].pseudo}"></span>
+                                    <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].pseudo')}" th:errors="*{joueurs[__${row.index}__].pseudo}" class="Errors"></span>
                                 </label>
                             </div>
                             <div>    
                                 <label class="LabelDisplayLeft" id="Block">mail: 
                                     <input type="text" th:field="*{joueurs[__${row.index}__].mail}" th:value="*{joueurs[__${row.index}__].mail}" />
-                                    <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].mail')}" th:errors="*{joueurs[__${row.index}__].mail}"></span>
+                                    <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].mail')}" th:errors="*{joueurs[__${row.index}__].mail}" class="Errors"></span>
                                 </label>
                             </div>
                     </fieldset>
@@ -52,7 +52,7 @@
             </form>
             <br>
             <div class="Position">
-                <a th:href="@{/page-tournois(tournois_id=${tournoi.id})}"> retour</a>
+                <button><a th:href="@{/page-tournois(tournois_id=${tournoi.id})}"> retour</a></button>
             </div>
         </fieldset>
     </div>        

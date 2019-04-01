@@ -43,14 +43,20 @@
                         </form>
                     </fieldset>
                 </div>
+                <br>                    
+                <div class="Position">
+                    <button><a th:href="@{edit-team(team_id=${team.id}, tournois_id=${tournois_id})}">edit team</a></button>
+                    <br>
+                    <br>
+                    <button><a th:href="@{/page-tournois(tournois_id=${tournois_id})}"> Page tournoi</a></button>
+                    <br>
+                    <br>
+                    <button><a href="/">Page des tournois</a></button>
+                    <br> 
+                    <br>   
+                    <button><a th:href="@{pdf(team_id=${team.id}, tournois_id=${tournois_id})}">Edit pdf</a></button>
+                </div>
             </form>
-            <br>                    
-            <div class="Position">
-                <a th:href="@{edit-team(team_id=${team.id}, tournois_id=${tournois_id})}">edit team</a>
-                <a th:href="@{/page-tournois(tournois_id=${tournois_id})}"> Page tournoi</a>
-                <a href="/">page des tournois</a>
-                <a th:href="@{pdf(team_id=${team.id}, tournois_id=${tournois_id})}">edit pdf</a>
-            </div>
         </fieldset>
     </div>            
 </body>

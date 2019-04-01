@@ -14,7 +14,7 @@
 			<br>
 			<div class="Position" id="PositionDiv">
 				<label>
-					<a href="new-tournois"> ajoutez un tournoi</a>
+					<button><a href="new-tournois"> Ajoutez un tournoi</a></button>
 				</label>
 			</div>		
 			<br>
@@ -23,14 +23,16 @@
 				<form>
 					<table>
     					<tr th:each="tournoi : ${tournois}">
-        					<td th:text="${tournoi.name}"> nom de team
-        					</td>
+							<td>
+								<h3>
+									<span th:text="${tournoi.name}" th:remove="tag">nom du tournoi</span><br>
+								</h3>
+								<p>Description: <small th:text="${tournoi.description}" >description du tournoi</small></p>
+								<p>Nombre de joueur par équipe: <small th:text="${tournoi.nbJoueur}" >nombre de joueur</small></p>
+
+							</td>
         					<td>
-            					<p> Description </p>
-            					<span th:text="${tournoi.description}"> </span>
-        					</td>
-        					<td>
-            					<a th:href="@{/page-tournois(tournois_id=${tournoi.id})}"> image </a>
+            					<button><a th:href="@{/page-tournois(tournois_id=${tournoi.id})}"> S'inscrire </a></button>
         					</td>
     					</tr>
 					</table>
