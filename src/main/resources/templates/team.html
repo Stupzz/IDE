@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Votre equipe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Equipe</h1>
+<p>Nom de team: <span th:text="*{team.teamName}" th:value="*{team.teamName}"></span></p>
+    <div th:each="joueur, row : *{team.joueurs}">
+        <h3>Joueur <span th:text="${row.index} + 1 "></span> </h3>
+        <p>Nom: <span th:text="*{team.joueurs[__${row.index}__].name}"></span></p>
+        <p>Pseudo: <span th:text="*{team.joueurs[__${row.index}__].pseudo}"></span></p>
+        <p>mail: <span th:text="*{team.joueurs[__${row.index}__].mail}"></span></p>
+    </div>
+    <a th:href="@{edit-team(team_id=${team.id}, tournois_id=${tournois_id})}">edit team</a>
+    <a href="/">page des tournois</a>
+<p>editez un pdf</p>
+</body>
+</html>

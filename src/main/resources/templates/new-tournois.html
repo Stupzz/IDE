@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nouveau tournois</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Form</h1>
+<form action="#" th:action="@{/new-tournois}" th:object="${newTournois}" method="post">
+    <p>Nom tournois: <input type="text" th:field="*{name}" /> <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span></p>
+    <p>Nombre joueur par équipe: <input type="number" th:field="*{nbJoueur}" /> <span th:if="${#fields.hasErrors('nbJoueur')}" th:errors="*{nbJoueur}"></span></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

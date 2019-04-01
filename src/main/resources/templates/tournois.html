@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>page du tournoi</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<img src="ir5vkpe5.bmp">
+<h1>Page de tournois </span></h1>
+<a href="new-tournois"> ajoutez un tournoi</a>
+<h2>Les tournois</h2>
+<table >
+    <tr th:each="tournoi : ${tournois}">
+        <td th:text="${tournoi.name}"> nom de team</td>
+        <td>
+            <a th:href="@{/page-tournois(tournois_id=${tournoi.id})}"> image </a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
