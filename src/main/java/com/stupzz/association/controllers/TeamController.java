@@ -52,11 +52,13 @@ public class TeamController {
     }
 
     @PostMapping("/new-team")
-    public String newTeam(@Valid @ModelAttribute Team form, BindingResult bindingResult, @ModelAttribute("tournoi") Tournois tournois, @RequestParam String tournois_id) {
+    public String newTeam(@Valid @ModelAttribute Team form, BindingResult bindingResult, @ModelAttribute("tournoi") Tournois tournois, @RequestParam String tournois_id, Model model) {
         if (tournois == null || tournois.getId() == null || tournois.getTeams() == null) {
             tournois = tournoisRepository.findById(tournois_id).get();
         }
         if (bindingResult.hasErrors()) {
+            model.addAttribute("team", form);
+            model.addAttribute("tournoi", tournois);
             return "edit-team";
         }
 
