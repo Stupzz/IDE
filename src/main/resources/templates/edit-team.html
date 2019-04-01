@@ -2,24 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Votre equipe</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 <h1>Equipe</h1>
 <form action="#" th:action="@{/new-team(tournois_id=${tournoi.id})}" th:object="${team}" method="post">
     <input type="hidden" th:if="*{id != '' and id != null}" th:field="*{id}" th:value="*{id}">
-    <p>Nom de team: <input type="text" th:field="*{teamName}" th:value="*{teamName}" /></p>
-    <span th:if="${#fields.hasErrors('teamName')}" th:errors="*{teamName}"></span>
+    <p>Nom de team: <input type="text" th:field="*{teamName}" th:value="*{teamName}"/>
+        <span th:if="${#fields.hasErrors('teamName')}" th:errors="*{teamName}"></span>
+    </p>
     <div th:each="joueur, row : *{joueurs}">
-        <h3>Joueur <span th:text="${row.index} + 1 "></span> </h3>
-        <p>Nom: <input type="text" th:field="*{joueurs[__${row.index}__].name}" th:value="*{joueurs[__${row.index}__].name}" />
-            <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].name')}" th:errors="*{joueurs[__${row.index}__].name}"></span> </p>
-        <p>Pseudo: <input type="text" th:field="*{joueurs[__${row.index}__].pseudo}" th:value="*{joueurs[__${row.index}__].pseudo}" />
-            <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].pseudo')}" th:errors="*{joueurs[__${row.index}__].pseudo}"></span></p>
-        <p>mail: <input type="text" th:field="*{joueurs[__${row.index}__].mail}" th:value="*{joueurs[__${row.index}__].mail}" />
-            <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].mail')}" th:errors="*{joueurs[__${row.index}__].mail}"></span></p>
+        <h3>Joueur <span th:text="${row.index} + 1 "></span></h3>
+        <p>Nom: <input type="text" th:field="*{joueurs[__${row.index}__].name}"
+                       th:value="*{joueurs[__${row.index}__].name}"/>
+            <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].name')}"
+                  th:errors="*{joueurs[__${row.index}__].name}"></span>
+        </p>
+        <p>Pseudo: <input type="text" th:field="*{joueurs[__${row.index}__].pseudo}"
+                          th:value="*{joueurs[__${row.index}__].pseudo}"/>
+            <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].pseudo')}"
+                  th:errors="*{joueurs[__${row.index}__].pseudo}"></span>
+        </p>
+        <p>mail: <input type="text" th:field="*{joueurs[__${row.index}__].mail}"
+                        th:value="*{joueurs[__${row.index}__].mail}"/>
+            <span th:if="${#fields.hasErrors('joueurs[' + row.index +'].mail')}"
+                  th:errors="*{joueurs[__${row.index}__].mail}"></span>
+        </p>
     </div>
-    <p><input type="submit" value="Submit" /></p>
+    <p><input type="submit" value="Submit"/></p>
+    <a th:href="@{/page-tournois(tournois_id=${tournoi.id})}"> retour</a>
 </form>
 </body>
 </html>

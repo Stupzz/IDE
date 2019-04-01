@@ -14,6 +14,7 @@
         <p>mail: <span th:text="*{team.joueurs[__${row.index}__].mail}"></span></p>
     </div>
     <a th:href="@{edit-team(team_id=${team.id}, tournois_id=${tournois_id})}">edit team</a>
+    <a th:href="@{/page-tournois(tournois_id=${tournois_id})}"> Page tournoi</a>
     <a href="/">page des tournois</a>
 <p>editez un pdf</p>
 </body>

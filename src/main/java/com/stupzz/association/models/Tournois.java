@@ -1,6 +1,7 @@
 package com.stupzz.association.models;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -21,6 +22,7 @@ public class Tournois {
     private String id;
     @DBRef
     private List<Team> teams;
-    private String imageName;
+    private String image;
+    private String description;
 
 }

@@ -5,16 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1>Tournoi <span th:text="${tournois.name}" > </span></h1>
+<h1>Tournoi <span th:text="${tournois.name}"> </span></h1>
 <a th:href="@{/new-team(tournois_id=${tournois.id})}"> ajouter une team</a>
+<a href="/">retour</a>
 <h2>Les teams</h2>
-<table >
-        <tr th:each="team : ${tournois.teams}">
-            <td><a th:href="@{/team(team_id=${team.id}, tournois_id=${tournois.id})}" th:text="${team.teamName}"></a> </td>
-            <td>
-                <span th:each=" joueur : ${team.joueurs}" th:text="${joueur.name}"> </span>
-            </td>
-        </tr>
-</table>
+<table>
+    <tr th:each="team : ${tournois.teams}">
+        <td><a th:href="@{/team(team_id=${team.id}, tournois_id=${tournois.id})}" th:text="${team.teamName}"></a></td>
+        <td>
+            <span th:each=" joueur : ${team.joueurs}" th:text="${joueur.name}"> </span>
+            <br/>
+        </td>
+    </tr>
 </body>
 </html>
