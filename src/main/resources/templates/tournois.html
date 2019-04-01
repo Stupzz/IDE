@@ -1,25 +1,42 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>page du tournoi</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="MyCss.css">
 </head>
+
 <body>
-<img src="ir5vkpe5.bmp">
-<h1>Page de tournois </h1>
-<a href="new-tournois"> ajoutez un tournoi</a>
-<h2>Les tournois</h2>
-<table >
-    <tr th:each="tournoi : ${tournois}">
-        <td th:text="${tournoi.name}"> nom de team</td>
-        <td>
-            <p> Description </p>
-            <span th:text="${tournoi.description}"> </span>
-        </td>
-        <td>
-            <a th:href="@{/page-tournois(tournois_id=${tournoi.id})}"> image </a>
-        </td>
-    </tr>
-</table>
+	<div>
+		<fieldset>
+			<legend>Page de tournois </legend>
+			<br>
+			<div class="Position" id="PositionDiv">
+				<label>
+					<a href="new-tournois"> ajoutez un tournoi</a>
+				</label>
+			</div>		
+			<br>
+			<fieldset>
+				<legend>Les tournois</legend>
+				<form>
+					<table>
+    					<tr th:each="tournoi : ${tournois}">
+        					<td th:text="${tournoi.name}"> nom de team
+        					</td>
+        					<td>
+            					<p> Description </p>
+            					<span th:text="${tournoi.description}"> </span>
+        					</td>
+        					<td>
+            					<a th:href="@{/page-tournois(tournois_id=${tournoi.id})}"> image </a>
+        					</td>
+    					</tr>
+					</table>
+				</form>
+			</fieldset>
+		</fieldset>
+	</div>				
 </body>
 </html>
