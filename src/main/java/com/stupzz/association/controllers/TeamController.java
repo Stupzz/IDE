@@ -165,10 +165,10 @@ public class TeamController {
 
             Paragraph teamName = new Paragraph("Team: " + team.getTeamName()+ ". Composez de:", teamFont);
             Paragraph description = new Paragraph("Description du tournois: " + tournois.getDescription()+".", smallBold);
+            addEmptyLine(description, 5);
             document.add(description);
-            addEmptyLine(teamName, 5);
-            document.add(teamName);
             addEmptyLine(teamName, 2);
+            document.add(teamName);
             PdfPTable table = new PdfPTable(team.getJoueurs().size());
 
             for (int i = 0; i < team.getJoueurs().size(); ++i) {
