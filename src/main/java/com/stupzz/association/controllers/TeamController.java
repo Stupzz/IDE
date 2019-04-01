@@ -6,7 +6,6 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.stupzz.association.exceptions.NotFoundException;
 import com.stupzz.association.models.Joueur;
-import com.stupzz.association.models.Pdf;
 import com.stupzz.association.models.Team;
 import com.stupzz.association.models.Tournois;
 import com.stupzz.association.repositories.JoueurRepository;
@@ -22,15 +21,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Path;
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
-
-import static com.itextpdf.text.Annotation.FILE;
 
 @Controller
 public class TeamController {
@@ -126,7 +120,7 @@ public class TeamController {
     }
 
     @GetMapping("/pdf")
-    public String showTeam(@RequestParam String team_id, @RequestParam String tournois_id) {
+    public String createPdf(@RequestParam String team_id, @RequestParam String tournois_id) {
         Team team = teamRepository.findById(team_id).get();
         Tournois tournois = tournoisRepository.findById(tournois_id).get();
         try {
