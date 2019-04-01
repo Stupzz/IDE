@@ -6,9 +6,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Data
@@ -22,7 +21,7 @@ public class Tournois {
     private String id;
     @DBRef
     private List<Team> teams;
-    private String image;
     private String description;
+    //private SimpleDateFormat dateTournois;
 
 }

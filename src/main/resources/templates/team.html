@@ -49,7 +49,7 @@
                 <a th:href="@{edit-team(team_id=${team.id}, tournois_id=${tournois_id})}">edit team</a>
                 <a th:href="@{/page-tournois(tournois_id=${tournois_id})}"> Page tournoi</a>
                 <a href="/">page des tournois</a>
-                <label>editez un pdf</label>
+                <a th:href="@{pdf(team_id=${team.id}, tournois_id=${tournois_id})}">edit pdf</a>
             </div>
         </fieldset>
     </div>            

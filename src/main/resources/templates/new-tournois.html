@@ -23,9 +23,15 @@
     			<div class="DivDisplay">	
     				<label class="LabelDisplayLeft">Nombre joueur par équipe: 
     					<input type="number" th:field="*{nbJoueur}" /> 
-    					<span th:if="${#fields.hasErrors('nbJoueur')}" th:errors="*{nbJoueur}"></span>
+    					<span th:errors="*{nbJoueur}"></span>
     				</label>
     			</div>
+				<!--<div class="DivDisplay">
+					<label class="LabelDisplayLeft">Date du tournoi:
+						<input type="date" th:field="*{dateTournois}" />
+						<span th:errors="*{dateTournois}"></span>
+					</label>
+				</div>-->
 				<div class="DivDisplay">
 					<p>Description</p>
 					<textarea rows="4" cols="50" th:field="*{description}"></textarea>
@@ -33,7 +39,9 @@
     			</div>
 				<div class="Position">
 					<input type="submit" value="Submit" /> <input type="reset" value="Reset" />
-					<a href="/">retour</a>
+					<form action="/">
+						<input type="submit" value="Retour" />
+					</form>
 				</div>
 			</form>
     	</fieldset>
